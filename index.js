@@ -22,6 +22,9 @@ app.use(
   })
 );
 
+app.use(passport.initialize());
+app.use(passport.session());
+
 app.use("/auth", auth);
 
 const PORT = process.env.PORT || 5000;
