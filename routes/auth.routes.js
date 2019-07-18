@@ -14,7 +14,7 @@ Router.get("/api/logout", (req, res) => {
   res.send(req.user);
 });
 
-Router.get("/api/current", (req, res) => {
+Router.get("/api/current_user", (req, res) => {
   res.json(req.user);
 });
 
