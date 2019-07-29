@@ -20,6 +20,7 @@ const Header = ({ user }) => {
             <li>
               <Payment />
             </li>
+            <li>Credits: {user.credits}</li>
 
             <li>
               <a href="/api/logout">Logout</a>

@@ -1,12 +1,10 @@
-const passport = require("passport");
-const mongoose = require("mongoose");
 const express = require("express");
 const keys = require("../config/keys");
 const Router = express.Router();
 const stripe = require("stripe")(keys.stripeSecretKey);
-const User = require("../models/Users");
+const requireLogin = require("../middlewares/requireLogin");
 
-Router.post("/", async (req, res) => {
+Router.post("/", requireLogin, async (req, res) => {
   try {
     const charge = await stripe.charges.create({
       amount: 500,
