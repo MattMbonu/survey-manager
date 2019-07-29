@@ -3,6 +3,7 @@ const app = express();
 const keys = require("./config/keys");
 //Routes
 const auth = require("./routes/auth.routes");
+const stripe = require("./routes/billing.routes");
 //models
 require("./models/Users");
 //Services
@@ -24,8 +25,15 @@ app.use(
 
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(express.json());
 
 app.use("/auth", auth);
+app.use("/api/stripe", stripe);
+app.get("/api/logout", (req, res) => {
+  req.logout();
+  res.redirect("/");
+});
+
 app.get("/api/current_user", (req, res) => {
   res.json(req.user);
 });
