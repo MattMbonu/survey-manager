@@ -4,8 +4,10 @@ const keys = require("./config/keys");
 //Routes
 const auth = require("./routes/auth.routes");
 const stripe = require("./routes/billing.routes");
+const survey = require("./routes/survey.routes");
 //models
 require("./models/Users");
+require("./models/Survey");
 //Services
 require("./services/passport");
 const mongoose = require("mongoose");
@@ -30,6 +32,7 @@ app.use(express.json());
 
 app.use("/auth", auth);
 app.use("/api/stripe", stripe);
+app.use("/api/survey", survey);
 app.get("/api/logout", (req, res) => {
   req.logout();
   res.redirect("/");
