@@ -16,6 +16,7 @@ const cookieSession = require("cookie-session");
 const path = require("path");
 
 mongoose.connect(keys.mongoURI, { useNewUrlParser: true }, () => {
+  mongoose.set("debug", true);
   console.log("mongodb connected");
 });
 
