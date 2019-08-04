@@ -15,7 +15,9 @@ const Payment = ({ handlePaymentToken }) => {
       panelLabel="Pay Now"
       token={token => handlePaymentToken(token)}
       stripeKey={process.env.REACT_APP_STRIPE_KEY}
-    />
+    >
+      <button className="waves-effect waves-light btn">Add Credits</button>
+    </StripeCheckout>
   );
 };
 

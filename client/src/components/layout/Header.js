@@ -30,16 +30,24 @@ const Header = ({ user }) => {
     }
   };
   return (
-    <nav>
-      <div className="nav-wrapper">
-        <Link to={user ? "/surveys" : "/"} className="brand-logo">
-          Survey Manager Pro
-        </Link>
-        <ul id="nav-mobile" className="right hide-on-med-and-down">
-          {renderContent()}
-        </ul>
-      </div>
-    </nav>
+    <>
+      <nav>
+        <div className="nav-wrapper">
+          <Link to={user ? "/dashboard" : "/"} className="brand-logo">
+            Survey Manager Pro
+          </Link>
+          <a href="#" data-target="mobile-demo" className="sidenav-trigger">
+            <i className="material-icons">menu</i>
+          </a>
+          <ul id="nav-mobile" className="right hide-on-med-and-down">
+            {renderContent()}
+          </ul>
+        </div>
+      </nav>
+      <ul className="sidenav" id="mobile-demo">
+        {renderContent()}
+      </ul>
+    </>
   );
 };
 
