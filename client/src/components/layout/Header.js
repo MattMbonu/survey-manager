@@ -17,10 +17,12 @@ const Header = ({ user }) => {
       default:
         return (
           <Fragment>
-            <li>
+            <li style={{ marginRight: "10px" }}>
               <Payment />
             </li>
-            <li>Credits: {user.credits}</li>
+            <li style={{ marginRight: "10px" }}>
+              Credits Remaining: {user.credits}
+            </li>
 
             <li>
               <a href="/api/logout">Logout</a>
@@ -32,21 +34,15 @@ const Header = ({ user }) => {
   return (
     <>
       <nav>
-        <div className="nav-wrapper">
+        <div class="nav-wrapper">
           <Link to={user ? "/dashboard" : "/"} className="brand-logo">
             Survey Manager Pro
           </Link>
-          <a href="#" data-target="mobile-demo" className="sidenav-trigger">
-            <i className="material-icons">menu</i>
-          </a>
-          <ul id="nav-mobile" className="right hide-on-med-and-down">
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
             {renderContent()}
           </ul>
         </div>
       </nav>
-      <ul className="sidenav" id="mobile-demo">
-        {renderContent()}
-      </ul>
     </>
   );
 };

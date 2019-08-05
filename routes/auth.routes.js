@@ -8,7 +8,7 @@ Router.get(
 );
 
 Router.get("/google/callback", passport.authenticate("google"), (req, res) => {
-  res.redirect("/surveys");
+  res.redirect("/dashboard");
 });
 
 module.exports = Router;
