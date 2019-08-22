@@ -1,6 +1,11 @@
 import React from "react";
+import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
 
-const Landing = () => {
+const Landing = ({ user }) => {
+  if (user) {
+    return <Redirect to="/dashboard" />;
+  }
   return (
     <div style={{ textAlign: "center" }}>
       <h1>Welcome to Survey Manager Pro</h1>
@@ -30,4 +35,5 @@ const Landing = () => {
   );
 };
 
-export default Landing;
+const mapStateToProps = ({ auth: { user } }) => ({ user });
+export default connect(mapStateToProps)(Landing);
